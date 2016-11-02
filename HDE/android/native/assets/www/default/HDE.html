@@ -1,0 +1,1769 @@
+<!DOCTYPE HTML><html>
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <title>HDE</title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport">
+        <link href="worklight/worklight.css" rel="stylesheet">
+        <link href="images/favicon.png" rel="shortcut icon">
+        <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
+        <link href="jqueryMobile/demos/css/jquery.mobile.theme-1.2.1.css" rel="stylesheet">
+        <link href="jqueryMobile/demos/css/jquery.mobile.structure-1.2.1.css" rel="stylesheet">
+        <link href="jqueryMobile/demos/css/jquery.mobile.theme-1.2.1.min.css" rel="stylesheet">
+        <link href="jqueryMobile/demos/docs/jqm-docs.css" rel="stylesheet">
+        <link href="jqueryMobile/demos/css/jquery.mobile-1.2.1.min.css" rel="stylesheet">
+        <link href="jqueryMobile/demos/css/jquery.mobile-1.2.1.css" rel="stylesheet">
+        <link href="jqueryMobile/jquery.mobile.structure-1.2.1.min.css" rel="stylesheet">
+        <link href="jqueryMobile/jquery.mobile-1.2.1.min.css" rel="stylesheet">
+        <link href="jqueryMobile/demos/css/jquery.mobile.structure-1.2.1.min.css" rel="stylesheet">
+        <link href="jqueryMobile/jquery.mobile.structure-1.2.1.css" rel="stylesheet">
+        <link href="jqueryMobile/jquery.mobile.theme-1.2.1.min.css" rel="stylesheet">
+        <link href="jqueryMobile/jquery.mobile-1.2.1.css" rel="stylesheet">
+        <link href="jqueryMobile/jquery.mobile.theme-1.2.1.css" rel="stylesheet">
+        <link href="css/HDE.css" rel="stylesheet">
+        <link href="css/idangerous.swiper.css" rel="stylesheet">
+<!-- the above css file is obtained from a javascript library by iDangero.us -->
+        <script>
+		// Define WL namespace.
+		var WL = WL ? WL : {};
+		/**
+		 * WLClient configuration variables.
+		 * Values are injected by the deployer that packs the gadget.
+		 */
+		WL.StaticAppProps = {
+   "APP_DISPLAY_NAME": "HDE",
+   "APP_ID": "HDE",
+   "APP_SERVICES_URL": "\/apps\/services\/",
+   "APP_VERSION": "1.0",
+   "ENVIRONMENT": "android",
+   "LOGIN_DISPLAY_TYPE": "embedded",
+   "WORKLIGHT_NATIVE_VERSION": "1420749232-2408201680-2746434164",
+   "WORKLIGHT_PLATFORM_VERSION": "6.1.0.00.20131219-1900",
+   "WORKLIGHT_ROOT_URL": "\/apps\/services\/api\/HDE\/android\/"
+};</script>
+		<script src="worklight/cordova.js"></script>
+		<script src="worklight/wljq.js"></script>
+		<script src="worklight/worklight.js"></script>
+		<script src="worklight/checksum.js"></script>
+		<script src="worklight/analytics.js"></script>
+		<script src="worklight/jsonstore.js"></script>
+		<script>
+	window.$ = window.jQuery = WLJQ;
+</script>
+<script src="jqueryMobile/demos/jquery.js"></script>
+<script src="jqueryMobile/demos/jquery.mobile-1.2.1.js"></script>
+    </head>
+    <body id="content" style="display: none;">
+<!-- the title page displays overall basic purpose and features of the app -->
+        <div data-role="page" id="titlePage" style="background-image:url('images/helpdesk/hlp.jpg'); background-repeat: no-repeat; background-position: center;">
+            <div data-role="header" id="header">
+                <h3 style="font-family:cursive;font-size: x-large;">HelpDesk</h3>
+            </div>
+            <p style="font-family: cursive;font-size: large;">
+                <br>
+                <b>Assisting individuals to kick start their career by providing
+			related information in a convenient manner which will help them to
+			progress and fulfill their goals.</b>
+            </p>
+            <br>
+            <br>
+            <h4>
+                <label id="label"><b>Features:</b></label>
+            </h4>
+            <dl style="font-family: cursive;font-size: large">
+                <dd>Career Path</dd>
+                <dd>Available streams</dd>
+                <dd>Shows possible options for a specific pursuit</dd>
+                <dd>Exam Information</dd>
+                <dd>Related Colleges for HS</dd>
+            </dl>
+            <div data-position="fixed" data-role="footer" id="footer">
+                <a data-role="button" href="#homePage" id="btnFirstPage" style="float: right;">Proceed</a><a data-role="button" href="#login" id="btnLogin" style="float: left;">Login</a>
+                <h3>
+                </h3>
+            </div>
+        </div>
+	<!-- The home page contains the list of streams that can selected -->
+        <div class="bgimage" data-role="page" id="homePage" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-position="fixed" data-role="header">
+                <h4 align="center">
+                    <label id="selectStream" style="font-family: cursive;">Study Stream</label>
+                </h4>
+            </div>
+            <div data-role="content" style="color: white;">
+                <p align="center">
+                </p>
+                <h3 style="font-family: cursive;">Make your Choice:</h3>
+                <br>
+                <br>
+                <a data-role="button" href="#MedStreams" id="medButton">Medical</a> 
+			<a data-role="button" href="#EngStreams" id="enggButton">Engineering</a> 
+			<a data-role="button" href="#BusStreams" id="busButton">Business</a>
+                <br>
+                <br>
+                <p></p>
+            </div>
+            <div data-position="fixed" data-role="footer" id="mainFoot">
+                <a data-icon="back" data-role="button" href="#titlePage" id="btntitle" style="float: right">back</a>
+			<a data-icon="gear" data-role="button" href="#Reg" id="registerButton" style="float: left;">Register</a> 
+            </div>
+        </div>
+        <script src="js/initOptions.js"></script>
+	<script src="js/HDE.js"></script>
+	<script src="js/messages.js"></script>
+	<!-- using the iDangero.us Swiper-master javascript library, we were able to create slidable content  -->
+        <div class="bgimage" data-add-back-btn="true" data-back-btn-text="Back" data-role="page" id="MedStreams">
+            <div data-role="header">
+                <h1>Medical Streams</h1>
+                <a data-icon="back" data-role="button" href="#homePage" id="button0">Back</a>
+            </div>
+            <div data-role="content">
+                <label>Swipe to go to another substream, Tap to learn more</label> 
+			<img align="right" border="0" data-inline="true" height="30" src="images/arrow.jpg" width="15">
+			<img align="left" border="0" data-inline="true" height="30" src="images/arrow2.jpg" width="15">		
+			<div class="swiper-container med-swiper" data-inline="true" onclick="onTapSwitchMed()" style="background-color: lime;">
+                    <div class="swiper-wrapper" style="background-color: grey;">
+                        <div class="swiper-slide" style="background-image:url('images/helpdesk/mbbs.jpg');background-repeat: no-repeat;background-position:center;  ">
+                            <br>
+                            <br>
+                            <h3 style="font-family: cursive;">Bachelor of Medicine and Bachelor of Surgery </h3> 
+                        </div>
+                        <div class="swiper-slide" style="background-image:url('images/helpdesk/bds.jpg');background-repeat: no-repeat;background-position:center; ">
+                            <br>
+                            <h2 style="font-family: cursive;"> Bachelor of Dental Surgery</h2>  
+                        </div>
+                        <div class="swiper-slide" style="background-image:url('images/helpdesk/homeo.jpg');background-repeat: no-repeat;background-position:center;">
+                            <br>
+                            <br>
+                            <h1 align="center" style="font-family: cursive;"> Homeopathy</h1>  
+                        </div>
+                        <div class="swiper-slide" style="background-image:url('images/helpdesk/biotech.jpeg');background-repeat: no-repeat;background-position:center;">
+                            <br>
+                            <br>
+                            <h1 align="center" style="font-family: cursive;">Bio-Technology </h1>  
+                        </div>
+                        <div class="swiper-slide" style="background-image:url('images/helpdesk/bpharm.jpg');background-repeat: no-repeat;background-position:center; ">
+                            <br>
+                            <br>
+                            <h1 align="center" style="font-family: cursive;">BPharmacy</h1>  
+                        </div>
+                        <div class="swiper-slide" style="background-image:url('images/helpdesk/micbio.jpg');background-repeat: no-repeat;background-position:center; ">
+                            <br>
+                            <br>
+                            <h1 align="center" style="font-family: cursive;">Micro Biology</h1>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="EngStreams">
+            <div data-position="fixed" data-role="header">
+                <h1>Engineering Strem</h1>
+                <a data-icon="back" data-role="button" href="#homePage" id="button0">Back</a>
+            </div>
+            <div data-role="content">
+                <label>Swipe to go to another substream, Tap to learn more</label> 
+			<img align="right" border="0" height="30" src="images/arrow.jpg" width="15">
+			<img align="left" border="0" height="30" src="images/arrow2.jpg" width="15">
+			<div class="swiper-container eng-swiper" onClick="onTapSwitchEng()" style="background-color: grey;">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" style="background-image:url('images/helpdesk/aero.jpg');background-repeat: no-repeat;background-position:center;">
+                            <br>
+                            <br>
+                            <h1 align="center" style="font-family: cursive;">Aeronautical</h1>
+                        </div>
+                        <div class="swiper-slide" style="background-image: url('images/helpdesk/eee.jpg'); background-repeat: no-repeat; background-position: center;">
+                            <br>
+                            <h1 align="center" style="font-family: cursive;">Electrical
+							Engineering</h1>
+                        </div>
+                        <div class="swiper-slide" style="background-image: url('images/helpdesk/cse.jpg'); background-repeat: no-repeat; background-position: center;">
+                            <br>
+                            <h1 align="center" style="font-family: cursive;">Computer
+							Science Engineering</h1>
+                        </div>
+                        <div class="swiper-slide" style="background-image: url('images/helpdesk/mech.jpg'); background-repeat: no-repeat; background-position: center;">
+                            <br>
+                            <br>
+                            <h1 align="center" style="font-family: cursive;">Mechanical</h1>
+                        </div>
+                        <div class="swiper-slide" style="background-image:url('images/helpdesk/civil.jpg');background-repeat: no-repeat;background-position:center;">
+                            <br>
+                            <h1 align="center" style="font-family: cursive;">Civil Engineering</h1>  
+                        </div>
+                    </div>
+                </div>		
+            </div>
+        </div>
+        <div data-role="page" id="BusStreams">
+            <div data-position="fixed" data-role="header" data-transition="slide">
+                <h1>Business Streams</h1>
+                <a data-icon="back" data-role="button" href="#homePage" id="button0">Back</a>
+            </div>
+            <div data-role="content">
+                <label>Swipe to go to another substream, Tap to learn more</label> 
+			<img align="right" border="0" height="30" src="images/arrow.jpg" width="15">
+			<img align="left" border="0" height="30" src="images/arrow2.jpg" width="15">
+			<div class="swiper-container bus-swiper" onClick="onTapSwitchBus()" style="background-color: grey;">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" style="background-image:url('images/helpdesk/bba.jpg');background-repeat: no-repeat;background-position:center;">
+                            <br>
+                            <h1 align="center" style="font-family: cursive;">Bachelor of Business Administration</h1>  
+                        </div>
+                        <div class="swiper-slide" style="background-image:url('images/helpdesk/bcom.jpg');background-repeat: no-repeat;background-position:center;">
+                            <br>
+                            <br>
+                            <h1 align="center" style="font-family: cursive;">Bachelor of Commerce</h1>  	 
+                        </div>
+                        <div class="swiper-slide" style="background-image:url('images/helpdesk/bbussc.jpg');background-repeat: no-repeat;background-position:center;">
+                            <br>
+                            <br>
+                            <h1 align="center" style="font-family: cursive;">Marketing</h1>  
+                        </div>
+                        <div class="swiper-slide" style="background-image:url('images/helpdesk/finance.jpg');background-repeat: no-repeat;background-position:center;">
+                            <br>
+                            <br>
+                            <h1 align="center" style="font-family: cursive;">Finance</h1>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-add-back-btn="true" data-back-btn-text="Back" data-role="page" id="MBBS" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-position="fixed" data-role="header" data-transition="slide">
+                <h1>MBBS</h1>
+                <a data-icon="back" data-role="button" href="#MedStreams" id="button0">Back</a>
+            </div>
+            <div data-role="content" id="pageContent10" style="color: white;">
+                <p>
+                    <b style="font-family: cursive;">Course Duration in India:</b>
+                    <br>The course duration is 5� years (4� years of classroom study followed by a year of rotating internship). The 4� years of class room study is broken into 3 phases of 18 months each. 
+			<br>Each phase of 18 months is known as Professional and is further divided into 3 semesters of 6 months each. There is a semester exam at the end of each semester and a Professional exam at the end of each professional. 
+			<br>The third professional is devoted to monthly clinical work in the wards and departments of the hospital. In all there are 3 professional examinations, followed by practical and clinical examinations. 
+			<br>Pass percentage required is 50 per cent
+		</p>
+            </div>
+		<!-- a collapsible set which will contain the exams that should be taken when pursing this course -->
+            <div data-role="collapsible-set" id="collapsible-set">
+                <div data-role="collapsible" id="examsCollapsible" style="color: white;">
+                    <h3>Exams To be Taken</h3>
+                    <ul data-inset="true" data-role="listview" id="listview">
+                        <li data-role="list-divider" id="Exam1" style="list-style-position: inside;">AIIMS Entrance
+						Examination</li>
+                        <li id="listitem">
+                            <br>All India Institute of Medical
+						Sciences (AIIMS), New Delhi was established in 1952. <br>There
+						are total 50 seats for which about 80,000 students compete from
+						all over India. <br>The exam is conducted in the month of
+						June <br>
+                            <a href="http://www.aiimsexams.org">website</a>
+                        </li>
+                        <li data-role="list-divider" id="Exam2">NEET</li>
+                        <li id="listitem">
+                            <br>National Eligibility cum Entrance
+						Test (NEET) is conducted by CBSE for admission to MBBS and Dental
+						courses in each academic year. <br>It takes place in the
+						month of May. <br>Admission to various institutes like Armed
+						Forces Medical College (AFMC) etc. is through the merit score in
+						NEET <br>
+                            <a href="http://www.cbseneet.nic.in">website</a>
+                        </li>
+                        <li data-role="list-divider" id="Exam3">AIPMT</li>
+                        <li id="listitem">
+                            <br>CBSE conducts All India
+						Pre-Medical/Pre Dental Entrance Examination (AIPMT) to select
+						candidates for 15% merit positions in medical and dental colleges
+						all over India. <br>It consists of Prelims and Main exams. <br>
+                            <a href="http://www.aipmt.nic.in/">website</a>
+                        </li>
+                        <li data-role="list-divider" id="Exam4">CMC Vellore Common
+						Entrance Test</li>
+                        <li id="listitem">
+                            <br>admission to 60 seats for MBBS
+						degree in Christian Medical College, Vellore. <br>It is
+						affiliated to Dr. MGR Medical University, Chennai. <br>The
+						exam is generally conducted in second week of May. <br>
+                            <a href="https://www.univariety.com/app/test/Career/Christian-Medical-College-Common-Entrance-Test/3e302d32">website</a>
+                        </li>
+                        <li data-role="list-divider" id="Exam5">Consortium of Medical,
+						Engineering and Dental Colleges of Karnataka (COMEDK) UGET</li>
+                        <li id="listitem">
+                            <br>conducted by COMEDK for admission
+						to Under Graduate courses in Member Institutions of the
+						consortium. <br>
+                            <a href="http://www.comedk.org">website</a>
+                        </li>
+                        <li data-role="list-divider" id="Exam6">Delhi University
+						Pre-Medical Test (DPMT)</li>
+                        <li id="listitem">
+                            <br>It is a national level entrance
+						test conducted by Delhi University <br>to select students for
+						admission to MBBS and BDS courses offered by various medical <br>colleges
+						affiliated to the University of Delhi. <br>
+                            <a href="http://www.indiacollegesearch.com/exam/medical/dpmt">website</a>
+                        </li>
+                        <li data-role="list-divider" id="Exam7">Punjab Medical
+						Entrance Test (PMET)</li>
+                        <li id="listitem">
+                            <br>is a state-level exam conducted by
+						The EducationDepartment, Govt. of Gujarat. <br>It is open for
+						the candidates who belong to the state of Gujarat. <br>
+                            <a href="http://www.pmet-inc.com">website</a>
+                        </li>
+                        <li data-role="list-divider" id="Exam8">BHU All India PMT
+						(BHU-PMT)</li>
+                        <li id="listitem">
+                            <br>screening and main exam, is held
+						annually for admission to UG medical courses of Benares Hindu
+						University like MBBS, BDS, BAMS and B.Pharm. <br>There are 84
+						seats in MBBS, 38 in BDS and 33 in B.Pharm. <br>
+                            <a href="http://www.sarkariexam.co.in/bhu-pmt-application-form/54605">website</a>
+                        </li>
+                        <li data-role="list-divider" id="Exam9">Punjab Medical
+						Entrance Test (PMET)</li>
+                        <li id="listitem">
+                            <br>It is conducted in the second week
+						of May for admission to various medical, dental, <br>
+						Ayurvedic and homoeopathic colleges in Punjab. <br>
+                            <a href="http://www.pmet-inc.com">website</a>
+                        </li>
+                        <li data-role="list-divider" id="Exam10">JIPMER Entrance Exam
+					</li>
+                        <li id="listitem">
+                            <br> Exam is conducted by Jawaharlal
+						Institute of Post-Graduate Medical Education <br>and
+						Research, Puduchery for admission to its renowned MBBS Course. <br>
+                            <a href="http://admission.aglasem.com/jipmer-mbbs/">website</a>
+                        </li>
+                    </ul>
+                </div>
+                <div data-role="collapsible" id="collgCollapsible" style="color: white;">
+                    <h3>Top Colleges</h3>
+                    <ul data-inset="true" data-role="listview" id="listview">
+                        <li data-role="list-divider" id="collg1">All India Institute
+						of Medical Sciences(AIIMS)</li>
+                        <li id="listitem">
+                            <a href="http://www.aiims.edu/">To Visit
+							their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg2">Christian Medical
+						College, Vellore (CMC, Vellore)</li>
+                        <li id="listitem">
+                            <a href="http://www.cmch-vellore.edu/">To
+							Visit their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg3">Armed Forces Medical
+						College(AFMC)</li>
+                        <li id="listitem">
+                            <a href="http://afmc.nic.in/">To Visit
+							their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg4">Madras Medical
+						College (Chennai Medical College)</li>
+                        <li id="listitem">
+                            <a href="http://www.mmc.tn.gov.in/">To
+							Visit their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg5">Osmania Medical
+						College - Hyderabad</li>
+                        <li id="listitem">
+                            <a href="http://www.osmaniamedicalcollege.com/">To Visit their
+							website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg6">Gandhi Medical
+						College</li>
+                        <li id="listitem">
+                            <a href="http://gandhihospital.in/">To
+							Visit their website</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p style="color: white;">
+                <b><i>Job Opportunities After an MBBS Degree</i></b> 
+                <br> For More Details:
+			<a href="http://career-changes.knoji.com/job-opportunities-after-an-mbbs-degree" id="item0">Click me</a>
+                <br>Few of them are: 
+			<br>1.HOSPITAL ADMINISTRATION 
+			<br>2.MEDICAL TRANSCRIPTION 
+			<br>3.SCIENTIFIC RESEARCH 
+			<br>4.COSMETOLOGY/TRICHOLOGY
+			<br>5.GENERAL PRACTICE
+		</p>
+            <div data-role="content" id="pageContent11" style="color: white;">
+		Further Details:
+		<a href="http://en.wikipedia.org/wiki/Bachelor_of_Medicine,_Bachelor_of_Surgery">Click Here</a>
+            </div>
+            <div data-position="fixed" data-role="footer">
+                <a data-icon="home" data-role="button" href="#homePage" id="button0">Home</a>
+			<a data-icon="search" data-iconpos="right" data-role="button" href="#login" id="button0" style="float: right;">Queries</a>			
+            </div>
+        </div>
+        <div class="bgimage" data-add-back-btn="true" data-back-btn-text="Back" data-role="page" id="BDS" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-position="fixed" data-role="header">
+                <h1>BDS</h1>
+                <a data-icon="back" data-role="button" href="#MedStreams" id="button0">Back</a>
+            </div>
+            <div data-role="content" id="pageContent1" style="color: white;">
+                <b>Description:</b> BDS is Bachelor of Dental Surgery.Modern Indian
+			dentists earn the Bachelor of Dental Surgery degree (B.D.S.), which
+			requires four years of study and one year of internship. This degree
+			is overseen by the Dental Council of India.<br> In most states,
+			one has to appear for an entrance test conducted by the Directorate
+			of Medical Education, whereas some autonomous universities conduct
+			their own entrance tests. Post graduate courses (Master of Dental
+			Surgery. MDS) are also available in different specialties. It
+			requires 3 years of study after BDS. Dentistry is the art and science
+			of prevention, diagnosis, and treatment of conditions, diseases, and
+			disorders of the oral cavity, the maxillofacial region, and its
+			associated structures as it relates to human beings. A dentist is a
+			doctor qualified to practice dentistry. In most countries, several
+			years of training in a university (usually 4-8) and some practical
+			experience working with actual patients' dentition are required to
+			become a qualified dentist.
+		</div>
+            <div data-role="collapsible" id="collgCollapsible" style="color: white;">
+                <h3>Top Colleges</h3>
+                <ul data-inset="true" data-role="listview" id="listview">
+                    <li data-role="list-divider" id="collg1">Maulana Azad Institute
+					of Dental Sciences, Delhi</li>
+                    <li id="listitem">
+                        <a href="http://maids.ac.in/home.php">To
+						Visit their website</a>
+                    </li>
+                    <li data-role="list-divider" id="collg2">Manipal College of
+					Dental Sciences, Manipal</li>
+                    <li id="listitem">
+                        <a href="http://www.cmch-vellore.edu/">To
+						Visit their website</a>
+                    </li>
+                    <li data-role="list-divider" id="collg3">Government Dental
+					College, Mumbai</li>
+                    <li id="listitem">
+                        <a href="http://www.gdcmumbai.org/">To
+						Visit their website</a>
+                    </li>
+                    <li data-role="list-divider" id="collg4">Faculty of Dental
+					Sciences, King George's, Lucknow</li>
+                    <li id="listitem">
+                        <a href="http://kgmu.org/dental_education.php">To Visit their
+						website</a>
+                    </li>
+                    <li data-role="list-divider" id="collg5">SRM Dental College,
+					Chennai</li>
+                    <li id="listitem">
+                        <a href="http://srmdentalcollege.ac.in/">To
+						Visit their website</a>
+                    </li>
+                    <li data-role="list-divider" id="collg6">Army College of Dental
+					Sciences</li>
+                    <li id="listitem">
+                        <a href="http://acds.co.in/">To Visit
+						their website</a>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="collapsible-set" id="collapsible-set4">
+                <div data-role="collapsible" id="collapsible6" style="color: white;">
+                    <h3>Entrance Exams</h3>
+                    <div data-role="collapsible" id="collapsible11">
+                        <ul data-inset="true" data-role="listview" id="listview">
+                            <li id="listitem">
+                                <a href="http://www.highereducationinindia.com/entrance-exams/aicet-bds-325.php">Exams
+								for BDS</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <label id="label1"></label> <a href="#" id="link0">Link</a>
+                </div>
+                <div data-role="collapsible" id="collapsible7"></div>
+                <div data-role="collapsible" id="collapsible8"></div>
+            </div>
+            <div data-role="content" id="pageContent12" style="color: white;">
+                <h4>PG Course:</h4>
+			There are a number of options for you to pursue further studies after
+			you complete your BDS. The following are some of them: Sri
+			Ramachandra University, Chennai offers M. Sc in Anatomy, Physiology,
+			Biochemistry and Microbiology and Applied Molecular Biology. Students
+			with bachelors degree in medicine, dental surgery, alternative
+			medicine and allied subjects are eligible for these courses. Others
+			courses offered by the institute, you are eligible to apply for are
+			M.Sc in Human Genetics, Biotechnology, Bioinformatics, Neuroscience
+			and Renal Sciences and Dialysis Technology. The admission to these
+			courses would be based on performance at entrance test. For details,
+			log on to www.srmc.edu
+		</div>
+            <div data-role="content" id="pageContent2" style="color: white;">
+                <h4>Career After Finishing:</h4>
+			There are many things you can do after completing BDS course:<br>
+			1.PG Entrance Examination. <br> 2.MDS (Masters of Dental
+			Surgery) After BDS You have following opportunity. <br>1.Start
+			Your own clinic.(Depending completely upto you_Most effective for
+			future) <br>2.Join in a government hospital or a private
+			hospital <br>3.Work as a lecturer in any reputed dental college.
+			(For this I Think MDS is better) <br>4.You can join in various
+			company which produce oral products <br>5.Work as dental
+			consultant <br>6.Can go for research also in India or abroad
+		</div>
+            <div data-role="content" id="pageContent3" style="color: white;">
+                <h4>Futher Details:</h4>
+                <a href="http://www.ida.org.in/AboutIda/CareerInDentistry_new.aspx">Extra
+				information</a> <a href="http://en.wikipedia.org/wiki/Dental_degree">Wikipedia</a>
+            </div>
+            <div data-position="fixed" data-role="footer">
+                <a data-icon="home" data-role="button" href="#homePage" id="button0">Home</a>
+			<a data-icon="search" data-iconpos="right" data-role="button" href="#login" id="button0" style="float: right;">Queries</a>
+            </div>
+        </div>
+        <div class="bgimage" data-add-back-btn="true" data-back-btn-text="Back" data-role="page" id="HOMEO" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-position="fixed" data-role="header">
+                <h1>HOMEO</h1>
+                <a data-icon="back" data-role="button" href="#MedStreams" id="button0">Back</a>
+            </div>
+            <div data-role="content" id="pageContent4" style="color: white;">
+                <h4>Description:</h4>
+			BHMS means Bachelors Degree in Homeopathy Medicine and Surgery. In
+			India this course is equivalent to MBBS. The duration of this course
+			is 4.5 years. To create responsible Homeopathic Practitioners
+			socially aware of their duties with a vision to contribute to the
+			Science in the future and serve the society. For Further Information:
+		</div>
+            <div data-role="collapsible" id="collgCollapsible" style="color: white;">
+                <h3>Top Colleges</h3>
+                <ul data-inset="true" data-role="listview" id="listview">
+                    <li data-role="list-divider" id="collg1">National Institute of Homeopathy</li>
+                    <li id="listitem">
+                        <a href="http://www.nih.nic.in/">To Visit	their website</a>
+                    </li>
+                    <li data-role="list-divider" id="collg2">Shivaji University</li>
+                    <li id="listitem">
+                        <a href="http://www.unishivaji.ac.in/">To	Visit their website</a>
+                    </li>
+                    <li data-role="list-divider" id="collg3">Yashwantrao Chavan	Maharashtra Open University</li>
+                    <li id="listitem">
+                        <a href="http://ycmou.digitaluniversity.ac/">To Visit their website</a>
+                    </li>
+                    <li data-role="list-divider" id="collg4">Motiwala Homeopathic Medical College</li>
+                    <li id="listitem">
+                        <a href="http://www.mhmc.org.in/homoeopathic.php">To Visit their website</a>
+                    </li>
+                    <li data-role="list-divider" id="collg5">5. Bharati Vidyapeeth Homeopathic Medical College</li>
+                    <li id="listitem">
+                        <a href="http://hmc.bharatividyapeeth.edu/default.aspx">To Visit their website</a>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="collapsible" id="collapsible9">
+                <h3>After Graduation</h3>
+            </div>
+            <div data-role="content" id="pageContent13" style="color: white;">
+                <h4>PG Course:</h4>
+                <br> M.D (Hom) Materia Medica Duration ; 3 years. <br>Stream
+			of Study ; Regular M.D (Hom) Organon of Medicine and Philosophy.
+			Duration ; 3 years. <br>Stream of Study ; Regular M.D (Hom) Case
+			Taking and Repertorisation. Duration ; 3 years. <br>Stream of
+			Study ; Regular M.D (Hom) Practice of Medicine. Duration ; 3 years. <br>Stream
+			of Study ; Regular M.D (Hom) Psychiatry. Duration ; 3 years.<br>
+			Stream of Study ; Regular M.D (Hom) Paediatrics. Duration ; 3 years.
+			Nature ; Regular M.D (Hom) Pharmacy. Duration ; 3 years. Stream of
+			Study ; Regular
+		</div>
+            <div data-role="content" id="pageContent5">
+                <h4>Career After Finishing</h4>
+                <a href="http://www.homeobook.com/tag/job-after-bhms/">A possible job</a>
+            </div>
+            <div data-role="content" id="pageContent6">Further Details:
+		<a href="http://en.wikipedia.org/wiki/Homeopathy">Wikipedia</a>
+            </div>
+            <div data-position="fixed" data-role="footer">
+                <a data-icon="home" data-role="button" href="#homePage" id="button0">Home</a>
+			<a data-icon="search" data-iconpos="right" data-role="button" href="#login" id="button0" style="float: right;">Queries</a>
+            </div>
+        </div>
+        <div class="bgimage" data-add-back-btn="true" data-back-btn-text="Back" data-role="page" id="BIOTECH" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-role="header">	
+                <a data-icon="back" data-role="button" href="#MedStreams" id="button0">Back</a>
+            </div>
+            <div data-role="content" id="pageContent7" style="color: white;">
+                <br>
+                <h4>Description:</h4>
+			At its simplest, biotechnology is technology based on biology -
+			biotechnology harnesses cellular and biomolecular processes to
+			develop technologies and products that help improve our lives and the
+			health of our planet.
+		</div>
+            <div data-role="collapsible" id="collgCollapsible" style="color: white;">
+                <h3>Top Colleges</h3>
+                <ul data-inset="true" data-role="listview" id="listview">
+                    <li data-role="list-divider" id="collg1">School of Chemical and Biotechnology, Sastra University</li>
+                    <li data-role="list-divider" id="collg2">Amity Institute of Biotechnology, Amity University</li>
+                    <li data-role="list-divider" id="collg3">Department of Biotechnology, The Oxford College ofScience</li>
+                    <li data-role="list-divider" id="collg4">Department of Biotechnology, R V College of Engineering</li>
+                    <li data-role="list-divider" id="collg5">Department of Biotechnology, School of Bioengineering, SRM University</li>
+                    <li data-role="list-divider" id="collg6">Department of Biotechnology and Bioinformatics, JaypeeUniversity of Information Technology</li>
+                    <li data-role="list-divider" id="collg7">Department of Biotechnology, Jaypee Institute of Information Technology</li>
+                    <li data-role="list-divider" id="collg8">Department of Biotechnology, Shoolini Institute of Life Sciences and Business Management</li>
+                    <li data-role="list-divider" id="collg9">Department of Biotechnology, Shri M. and N Virani Science College</li>
+                    <li data-role="list-divider" id="collg10">Department of Biotechnology, PES Institute of Technology</li>
+                    <li data-role="list-divider" id="collg11">Department of Biotechnology, Arunai Engineering College</li>
+                    <li data-role="list-divider" id="collg12">Department of Biochemistry and Biotechnology, Avinashilingam University for Women</li>
+                    <li data-role="list-divider" id="collg13">Department of Biotechnology, Acharya Institute of Sciences</li>
+                    <li data-role="list-divider" id="collg14">Department of Life Sciences, Reva Institute of Science and Management</li>
+                    <li data-role="list-divider" id="collg15">Department of Biotechnology, Gokaraju Rangaraju Institute of Engineering and Technology</li>
+                </ul>
+            </div>
+            <div data-role="collapsible" id="collapsible10" style="color: white;">
+                <h3>Entrance Exams</h3>
+            </div>
+            <div data-role="content" id="pageContent14" style="color: white;">
+                <h4>PG Courses:</h4>
+			You can complete your master's degree and then you can join ::
+			Agriculture biotechnology, Genetic engineering, Forensic science,
+			Tissue culture, Bio medicine or medicine. You can also do M.Sc.
+			Biotechnology and research leading to Ph.D. Other courses in
+			postgraduate/M.Sc are :: Bioinformatics Seed science and technology
+			Sericulture technology Food technology Medical biochemistry Nuclear
+			medicine Environmental biotechnology.
+		</div>
+            <div data-role="content" id="pageContent8" style="color: white;">
+                <h4>Possible Careers After Finishing:</h4>
+			Biotechnology assimilates in itself a number of disciplines. Further,
+			there is a great demand for biotechnical experts in countless
+			industries and sectors. The following are applications where
+			biotechnological techniques are used extensively: Agriculture Animal
+			Husbandry Environment Conservation Genetic Engineering Health Care
+			Medicine Industrial Research and Development
+		</div>
+            <div data-role="content" id="pageContent9" style="color: white;">Further Details:
+			<a href="http://en.wikipedia.org/wiki/Biotechnology">Wikipedia</a>
+            </div>
+            <div data-position="fixed" data-role="footer">
+                <a data-icon="home" data-role="button" href="#homePage" id="button0">Home</a>
+			<a data-icon="search" data-iconpos="right" data-role="button" href="#login" id="button0" style="float: right;">Queries</a>			
+            </div>
+        </div>
+        <div class="bgimage" data-add-back-btn="true" data-back-btn-text="Back" data-role="page" id="BPHARM" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-role="header">
+                <a data-icon="back" data-role="button" href="#MedStreams" id="button0">Back</a>
+            </div>
+            <div style="color: white;">
+                <h4>Description:</h4>
+                <br>B.Pharmacy is an Under Graduate Course. The Course Duration
+			is 4 years. Every Institution offering this course will intake 60
+			Seats. Eligibility Criteria : You can get into either Ist year or
+			directly into IInd year, but both of the entry points are different.
+			Eligibility for Admission to First Year of B. Pharm is 10+2 / PUC/
+			Intermediate in science with minimum 40% marks
+		</div>
+            <div data-role="content" style="color: white;">
+                <h4>Entrance Exams are :</h4>
+                <br>IIT <br>EAMCET <br>GGSIPU CET <br>RPET <br>PTU
+			CET <br>Odisha JEE <br>WB JEE <br>PTU CET
+			<div data-role="collapsible" id="collgCollapsible">
+                    <h3>Top Colleges</h3>
+                    <ul data-inset="true" data-role="listview" id="listview">
+                        <li data-role="list-divider" id="collg1">Amaltas College Of
+						Pharmacy,Indore</li>
+                        <li id="listitem">
+                            <a href="www.indexgroup.co.in">To Visit
+							their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg2">Sagar Institute of
+						Research and Technology Bhopal</li>
+                        <li id="listitem">
+                            <a href="http://www.sirtbhopal.ac.in">To
+							Visit their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg3">IES College of
+						Pharmacy Bhopal</li>
+                        <li id="listitem">
+                            <a href="www.iesbpl.ac.in">To Visit
+							their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg4">Oriental College of
+						Pharmacy BHOPAL</li>
+                        <li id="listitem">
+                            <a href="www.oistbpl.comCourses">To
+							Visit their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg5">Oriental College of
+						Pharmacy and Research, Indore</li>
+                        <li id="listitem">
+                            <a href="www.oistbpl.com">To Visit their
+							website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg6">Patel Institute of
+						Pharmacy, Bhopal</li>
+                        <li id="listitem">
+                            <a href="www.patelcollege.co.in">To
+							Visit their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg7">TIT COLLEGE OF
+						PHARMACY, BHOPAL</li>
+                        <li id="listitem">
+                            <a href="www.titbhopal.netCourses">To
+							Visit their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg8">RISHIRAJ COLLEGE OF
+						PHARMACY Indore</li>
+                        <li id="listitem">
+                            <a href="www.rcpindore.com">To Visit
+							their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg9">Bhabha Polytechnic
+						College Bhopal</li>
+                        <li id="listitem">
+                            <a href="www.beri.in">To Visit their
+							website</a>
+                        </li>
+                    </ul>
+                </div>
+                <div data-role="collapsible" id="careercollapsible">
+                    <h3>Career Prospects in Pharmacy after Graduation</h3>
+                    <br>
+                    <b>For Higher studies:</b> 
+                    <br> After a B.Pharm in pharmacy there are
+				various opportunities
+				<br> for students, they can either go for higher studies like
+				M.Pharm,
+				<br> MBA. or Ph.D degrees for improving their skills and up
+				gradation of
+				<br>their degree or they can go for jobs in the chemical companies, <br>
+				research institutes ,Pharma companies ,evenuniversities and
+				colleges.
+			</div>
+            </div>
+            <div data-position="fixed" data-role="footer">
+                <a data-icon="home" data-role="button" href="#homePage" id="button0">Home</a>
+			<a data-icon="search" data-iconpos="right" data-role="button" href="#login" id="button0" style="float: right;">Queries</a>
+            </div>
+        </div>
+        <div class="bgimage" data-add-back-btn="true" data-back-btn-text="Back" data-role="page" id="MBIO" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-position="fixed" data-role="header">
+                <a data-icon="back" data-role="button" href="#MedStreams" id="button0">Back</a>
+            </div>
+            <div style="color: white;">
+                <h4>Description:</h4>
+                <br> Microbiologists study the world of organisms that are too
+			small to be seen with the naked eye.Microbiologists study the
+			interaction of microorganisms with people and how they affect our
+			lives, as well as the roles these organisms play in the environment.
+			Microbiologists work in hospitals, universities, medical schools,
+			government laboratories, and almost every industry, specializing in a
+			variety of areas, from agriculture to the space industry.
+		</div>
+            <div data-role="content" style="color: white;">
+                <div data-role="collapsible" id="collgCollapsible">
+                    <h3>Top Colleges</h3>
+                    <ul data-inset="true" data-role="listview" id="listview">
+                        <li data-role="list-divider" id="collg1">University of Mumbai</li>
+                        <li data-role="list-divider" id="collg1">.Kakatiya university,
+						Warangal,</li>
+                        <li data-role="list-divider" id="collg1">Jiwaji university,
+						Gwalior</li>
+                        <li data-role="list-divider" id="collg1">Padmashree Dr.DY
+						Patil University, Mumbai</li>
+                        <li data-role="list-divider" id="collg1">St.xavier's college,
+						kolkata,</li>
+                        <li data-role="list-divider" id="collg1">Alpha arts and
+						science college, Chennai</li>
+                        <li data-role="list-divider" id="collg1">Global institute of
+						technology, Hyderabad</li>
+                        <li data-role="list-divider" id="collg1">Osmania university,
+						Hyderabad</li>
+                        <li data-role="list-divider" id="collg1">University of delhi,
+						New delhi</li>
+                        <li data-role="list-divider" id="collg1">Punjab university,
+						Chandigarh</li>
+                    </ul>
+                </div>
+                <p>
+                </p>
+                <h4>Postgraduate courses</h4>
+                <br> MD Microbiology <br> MSc Medical Microbiology
+			<br> PG Dip Medical Microbiology <br> Diploma in Clinical Pathology
+			<br> Physician Nurse Assistant
+			<p></p>
+                <h1>JOB OPPURTUNITY</h1>
+                <br>Microbiology is offered at three levels UG , PG and PhD.
+			Students pursuing UG <br>in microbiology can work at science
+			laboratories and pathology labs. <br> Microbiology graduates can
+			pursue PG in microbiology . <br>Once they complete their course,
+			they can work in microbiology based industries <br>like
+			pharmaceutical, dairy, breweries, distilleries, enzyme, etc.
+			Alternatively , <br> they can also pursue their PhD programme .
+			<br> After a few years of experience, one can start a pathology
+			laboratory. <br> Students who complete PhD can take up teaching
+			at universities and PG colleges. <br> They can also take up a
+			post doctoral research with good fellowship and contingency <br>
+			grants offered by funding agencies like UGC, CSIR, ICMR, DST, DBT,
+			etc.
+		</div>
+            <div data-position="fixed" data-role="footer">
+                <a data-icon="home" data-role="button" href="#homePage" id="button0">Home</a>
+			<a data-icon="search" data-iconpos="right" data-role="button" href="#login" id="button0" style="float: right;">Queries</a>			
+            </div>
+        </div>
+        <div class="bgimage" data-role="page" id="AERO" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-position="fixed" data-role="header">
+                <h1>Aerospace/Aeronautical Engineering</h1>
+                <a data-icon="back" data-role="button" href="#EngStreams" id="button0">Back</a>
+            </div>
+            <div data-role="content" style="color: white;">
+                <b><i>Description</i></b> 
+                <br>Aerospace engineering is the
+			primary branch of engineering concerned with the research, <br>design,
+			development, construction, testing, science and technology of
+			aircraft and spacecraft.
+		</div>
+            <div data-role="collapsible-set" id="collapsible-set0">
+                <div data-role="collapsible" id="collapsible"></div>
+                <div data-role="collapsible" id="collapsible1"></div>
+            </div>
+            <div data-role="collapsible-set" id="collapsible-set1">
+                <div data-role="collapsible" id="collapsible0" style="color: white;">
+                    <h3>Top Colleges</h3>
+                    <ul data-inset="true" data-role="listview" id="listview">
+                        <li data-role="list-divider" id="collg1">Academy of Aerospace and Aviation </li>
+                        <li id="listitem">
+                            <a href="http://www.htcampus.com/college/academy-aerospace-aviation">To Visit their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg2">Hindustan Institute of Technology and Science </li>
+                        <li id="listitem">
+                            <a href="http://hindustanuniv.ac.in">To Visit their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg3">Indian Institute of Aeronautical Engineering </li>
+                        <li id="listitem">
+                            <a href="http://iiaeit.org">To Visit their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg4">Indian Institute of Technology or I.I.T, Chennai</li>
+                        <li id="listitem">
+                            <a href="http://www.iitm.ac.in">To Visit their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg5">I.I.T, Mumbai </li>
+                        <li id="listitem">
+                            <a href="https://www.iitb.ac.in">To Visit their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg6">I.I.T, Kanpur</li>
+                        <li id="listitem">
+                            <a href="http://www.iitk.ac.in">To Visit their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg7">I.I.T, Kharagpur</li>
+                        <li id="listitem">
+                            <a href="http://www.iitkgp.ac.in">To Visit their website</a>
+                        </li>
+                        <li data-role="list-divider" id="collg8">Institute of Aeronautical Engineering or I.A.R.E</li>
+                        <li id="listitem">
+                            <a href="http://web.iare.ac.in">To Visit their website</a>
+                        </li>
+                    </ul>
+                </div>			
+            </div>
+            <div data-role="collapsible" id="collapsibleExams" style="color: white;">
+                <h3>Exams</h3>
+                <br>A number of entrance examinations for aeronautical engineering are carried out in this country. 
+			<br>The one at the national level is conducted twice per year in the month of January and May. 
+			<br>Almost all the examinations involve objective type questions on the subjects of Mathematics, Chemistry and Physics. 
+			<br>The candidates have to choose the correct answer from the 3 to 4 options provided in the test paper within duration of 3 hours.
+			<br>The entrance examinations are conducted for different levels of the study of aeronautical engineering. 
+			<br>The names of some of the famous aeronautical engineering entrance examinations in India are categorized below:
+			<div data-role="collapsible" id="collapsibleExamsGrad">
+                    <h3>Graduate Level</h3>
+                    <ul>
+                        <li>A.I.E.E.E or All India Engineering Entrance Examination</li>
+                        <li>C.E.E or Combined Entrance Examination of D.U or University of Delhi</li>
+                        <li>H.I.T.S.E.E or Hindustan Institute of Technology and Science Entrance Test</li>
+                        <li>I.I.S.A.T Admission Test of I.I.S.T of Thiruvananthapuram</li>
+                        <li>Indian Institute of Aeronautics (I.I.A) Entrance Exam</li>
+                        <li>J.E.E or Joint Entrance Exam of I.I.T or Indian Institute of Technology</li>
+                        <li>S.E.T or S.L.I.E.T Entrance Test</li>
+                        <li>S.R.M.E.E.E or S.R.M Engineering Entrance Examination</li>
+                    </ul>
+                </div>
+                <div data-role="collapsible" id="collapsibleExamsPostgrad">
+                    <h3>Postgraduate Level</h3>
+                    <ul>
+                        <li>G. A. T. E. or Graduate Aptitude Test in Engineering </li>
+                        <li>Punjab Engineering College Ph. D Entrance Examination</li>
+                        <li>Sathyabama University M. E. Entrance Examination</li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content" id="pageContent0" style="color: white;">
+                <b><i>Possible Career Options after Finishing</i></b>
+                <br>Airways companies like Air India
+			<br>Hindustan Aeronautics Ltd.
+			<br>BrahMos Aerospace Private Ltd.
+ 			<br>Boeing International Corporation India Pvt. Ltd.
+			<br>Aeronautical engineer
+			<br>Maintenance engineer
+			<br>Manufacturing systems engineer
+			<br>Materials engineer
+		</div>
+            <div data-role="content" id="pageContent" style="color: white;">
+                <b><i>Further Details</i></b> 
+                <br>
+                <a href="www.en.wikipedia.org/wiki/Aerospace_engineering" id="link">Wikipedia Link</a> 
+                <br>
+                <a href="http://www.mapsofindia.com/education/career/aeronautical.html" id="link">AE Job</a>
+            </div>
+            <div data-position="fixed" data-role="footer">
+                <a data-icon="home" data-role="button" href="#homePage" id="button0">Home</a>
+			<a data-icon="search" data-iconpos="right" data-role="button" href="#login" id="button0" style="float: right;">Queries</a>			
+            </div>
+        </div>
+        <div class="bgimage" data-role="page" id="EE" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-position="fixed" data-role="header">
+                <h1>Electric Engineering</h1>
+                <a data-icon="back" data-role="button" href="#EngStreams" id="button0">Back</a>
+            </div>
+            <div data-role="content" style="color: white;">
+                <b><i>Description</i></b>
+                <br>
+                <b>Electrical engineering</b> is considered to deal with the problems associated with systems
+			such as electric power transmission and electrical machines, whereas 
+			<br>
+                <b>Electronic engineering</b> deals with the study of electronic systems 
+			including computers, communication systems, integrated circuits, and radar 
+		</div>
+            <div data-role="collapsible-set" id="collapsible-set2">
+                <div data-role="collapsible" id="collapsible2" style="color: white;"> 
+                    <h3>Top Colleges</h3>
+                    <ul data-inset="true" data-role="listview" id="listview0">
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Bombay (IIT Bombay)</li>
+                        <li id="listitem0">
+                            <a href="https://www.iitb.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Delhi (IIT Delhi)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitd.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Kanpur (IIT Kanpur)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitk.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Kharagpur (IIT KGP)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitkgp.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Madras (IIT Madras)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitm.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Roorkee (IIT Roorkee)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitr.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology - Banaras Hindu University (IIT-BHU)</li>
+                        <li id="listitem0">
+                            <a href="https://iitbhu.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian School of Mines (ISM)</li>
+                        <li id="listitem0">
+                            <a href="http://www.ismdhanbad.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Jadavpur University (Faculty of Engineering and Technology)</li>
+                        <li id="listitem0">
+                            <a href="http://www.jaduniv.edu.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Motilal Nehru National Institute of Technology</li>
+                        <li id="listitem0">
+                            <a href="www.mnnit.ac.in">Item</a>
+                        </li>
+                    </ul>
+                </div>
+                <div data-role="collapsible" id="collapsible3" style="color: white;">
+                    <h3>Exams</h3>
+                    <ul data-inset="true" data-role="listview" id="listview1">
+                        <li id="listitem2">All India Engineering Entrance Examination
+						(AIEEE)<a href="http://en.wikipedia.org/wiki/All_India.../Architecture_Entrance_Examination"></a>
+                        </li>
+                        <li id="listitem3">Graduate Aptitude Test in Engineering<a href="http://en.wikipedia.org/wiki/Graduate_Aptitude_Test_in_Engineering"></a>
+                        </li>
+                        <li id="listitem4">IIT Joint Entrance Examination<a href="http://www.jeemain.nic.in"></a>
+                        </li>
+                        <li id="listitem2">Engineering Agricultural and Medical Common
+						Entrance Test (EAMCET), Andhra Pradesh<a href="http://apeamcet.org"></a>
+                        </li>
+                        <li id="listitem3">Common Entrance Examination (CEE), Delhi<a href="#"></a>
+                        </li>
+                        <li id="listitem4">Common Entrance Examination (CEE), Kerala<a href="#"></a>
+                        </li>
+                        <li id="listitem2">Karnataka Common Entrance Test<a href="#"></a>
+                        </li>
+                        <li id="listitem3">Common Entrance Examination (CEE), Assam<a href="#"></a>
+                        </li>
+                        <li id="listitem4">Combined Entrance Examination (CEE), Tamil Nadu<a href="#"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div data-role="collapsible" id="collapsible4">
+                </div>
+            </div>
+            <div data-role="content" id="pageContent0" style="color: white;">
+                <b><i>Possible Career Options after Finishing</i></b>
+                <br>IC Designer
+			<br>Broadcast Engineer
+			<br>Chemical Engineer
+ 			<br>Control and instrumental engineer
+			<br>Electrical engineer
+			<br>Electronics engineer
+			<br>Manufacturing systems engineer
+		</div>
+            <div data-role="content" id="pageContent" style="color: white;">
+                <b><i>Further Details</i></b>
+                <br>
+                <a href="en.wikipedia.org/wiki/Electrical_engineering" id="link">Wikipedia Link</a>
+                <br>
+                <a href="http://www.prospects.ac.uk/electrical_engineer_job_description.htm" id="link">Electronics Job</a>
+                <br>
+                <a href="http://www.prospects.ac.uk/electronics_engineer_job_description.htm" id="link">Electronics Job</a>
+                <br>
+                <a href="http://www.mapsofindia.com/education/engineering-colleges/top-electronics-communication-colleges-in-india.html" id="link">ECE in India</a>
+                <br>
+                <a href="http://www.mapsofindia.com/education/engineering-colleges/top-electrical-colleges-in-india.html" id="link">EE in India</a>
+            </div>
+            <div data-position="fixed" data-role="footer">
+                <a data-icon="home" data-role="button" href="#homePage" id="button0">Home</a>
+			<a data-icon="search" data-iconpos="right" data-role="button" href="#login" id="button0" style="float: right;">Queries</a>			
+            </div>
+        </div>
+        <div class="bgimage" data-role="page" id="CS_IT" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-position="fixed" data-role="header">
+                <h1>Computer Science</h1>
+                <a data-icon="back" data-role="button" href="#EngStreams" id="button0">Back</a>
+            </div>
+            <div data-role="content" style="color: white;">
+                <b><i>Description</i></b>
+                <br>The underlying goal of computer science engineering is to develop better computing solutions for practical problems
+			<br>This can come about either in the form of making new products, or theoretical developments that provide the basis for newer classes of solutions, better hardware, etc.
+			<br>Almost every computer system falls under the purview of computer science engineering,
+			<br>be it network applications, social media platforms, knowledge management systems, collaboration software, system software, embedded software, etc.
+		</div>
+            <div data-role="collapsible-set" id="collapsible-set3">
+                <div data-role="collapsible" id="collapsible3" style="color: white;">
+                    <h3>Exams</h3>
+                    <ul data-inset="true" data-role="listview" id="listview1">
+                        <li id="listitem2">All India Engineering Entrance Examination
+						(AIEEE)<a href="http://en.wikipedia.org/wiki/All_India.../Architecture_Entrance_Examination"></a>
+                        </li>
+                        <li id="listitem3">Graduate Aptitude Test in Engineering<a href="http://en.wikipedia.org/wiki/Graduate_Aptitude_Test_in_Engineering"></a>
+                        </li>
+                        <li id="listitem4">IIT Joint Entrance Examination<a href="http://www.jeemain.nic.in"></a>
+                        </li>
+                        <li id="listitem2">Engineering Agricultural and Medical Common
+						Entrance Test (EAMCET), Andhra Pradesh<a href="http://apeamcet.org"></a>
+                        </li>
+                        <li id="listitem3">Common Entrance Examination (CEE), Delhi<a href="#"></a>
+                        </li>
+                        <li id="listitem4">Common Entrance Examination (CEE), Kerala<a href="#"></a>
+                        </li>
+                        <li id="listitem2">Karnataka Common Entrance Test<a href="#"></a>
+                        </li>
+                        <li id="listitem3">Common Entrance Examination (CEE), Assam<a href="#"></a>
+                        </li>
+                        <li id="listitem4">Combined Entrance Examination (CEE), Tamil Nadu<a href="#"></a>
+                        </li>
+                    </ul>
+                </div>		
+                <div data-role="collapsible" id="collapsible5" style="color: white;">
+                    <h3>Top College</h3>
+                    <ul data-inset="true" data-role="listview" id="listview0">
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Bombay (IIT Bombay)</li>
+                        <li id="listitem0">
+                            <a href="https://www.iitb.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Delhi (IIT Delhi)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitd.ac.i">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Kanpur (IIT Kanpur)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitk.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Kharagpur (IIT KGP)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitkgp.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Madras (IIT Madras)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitm.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Roorkee (IIT Roorkee)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitr.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Birla Institute of Technology and Science (BITS-Pilani)</li>
+                        <li id="listitem0">
+                            <a href="http://www.bits-pilani.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology (IIT Guwahati)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitg.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">National Institute of Technology, Tiruchirappalli</li>
+                        <li id="listitem0">
+                            <a href="http://www.nitt.edu">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian School of Mines (ISM)</li>
+                        <li id="listitem0">
+                            <a href="http://www.ismdhanbad.ac.in">Item</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content" id="pageContent0" style="color: white;">
+                <b><i>Possible Career Options after Finishing</i></b>
+                <br>Database Adminstrator
+			<br>Games Developer
+			<br>Network Engineer
+ 			<br>Information Systems Manager
+			<br>It Consultant
+			<br>System Analyst
+			<br>Multimedia Programmer
+			<br>Systems Developer
+		</div>		
+            <div data-role="content" id="pageContent" style="color: white;">
+                <b><i>Further Details</i></b>
+                <br>
+                <a href="http://en.wikipedia.org/wiki/Computer_engineering" id="link">Wikipedia CE</a>
+                <br>
+                <a href="http://en.wikipedia.org/wiki/Computer_science" id="link">Wikipedia CE</a>
+                <br>
+                <a href="http://www.prospects.ac.uk/types_of_jobs_information_technology.htm" id="link">IT/CS Job</a>
+                <br>
+                <a href="http://www.mapsofindia.com/education/engineering-colleges/top-computer-science-colleges-in-india.html" id="link">CSE in India</a>
+            </div>
+            <div data-position="fixed" data-role="footer">
+                <a data-icon="home" data-role="button" href="#homePage" id="button0">Home</a>
+			<a data-icon="search" data-iconpos="right" data-role="button" href="#login" id="button0" style="float: right;">Queries</a>			
+            </div>
+        </div>
+        <div class="bgimage" data-role="page" id="MECH" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-position="fixed" data-role="header">
+                <h1>Mechanical</h1>
+                <a data-icon="back" data-role="button" href="#EngStreams" id="button0">Back</a>
+            </div>
+            <div data-role="content" style="color: white;">
+                <b><i>Description</i></b>
+                <br>It is discipline of engineering that applies the principles of engineering, physics and materials science for analysis, design,manufacturing, and maintenance of mechanical systems. 
+		 	<br>It is the branch of engineering that involves the production and usage of heat and mechanical power for the design, production, and operation of machines and tools.
+		 	<br>It is one of the oldest and broadest engineering disciplines.
+		</div>
+            <div data-role="collapsible-set" id="collapsible-set3">
+                <div data-role="collapsible" id="collapsible3" style="color: white;">
+                    <h3>Exams</h3>
+                    <ul data-inset="true" data-role="listview" id="listview1">
+                        <li id="listitem2">All India Engineering Entrance Examination
+						(AIEEE)<a href="http://en.wikipedia.org/wiki/All_India.../Architecture_Entrance_Examination"></a>
+                        </li>
+                        <li id="listitem3">Graduate Aptitude Test in Engineering<a href="http://en.wikipedia.org/wiki/Graduate_Aptitude_Test_in_Engineering"></a>
+                        </li>
+                        <li id="listitem4">IIT Joint Entrance Examination<a href="http://www.jeemain.nic.in"></a>
+                        </li>
+                        <li id="listitem2">Engineering Agricultural and Medical Common
+						Entrance Test (EAMCET), Andhra Pradesh<a href="http://apeamcet.org"></a>
+                        </li>
+                        <li id="listitem3">Common Entrance Examination (CEE), Delhi<a href="#"></a>
+                        </li>
+                        <li id="listitem4">Common Entrance Examination (CEE), Kerala<a href="#"></a>
+                        </li>
+                        <li id="listitem2">Karnataka Common Entrance Test<a href="#"></a>
+                        </li>
+                        <li id="listitem3">Common Entrance Examination (CEE), Assam<a href="#"></a>
+                        </li>
+                        <li id="listitem4">Combined Entrance Examination (CEE), Tamil Nadu<a href="#"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div data-role="collapsible" id="collapsible5" style="color: white;">
+                    <h3>Top College</h3>
+                    <ul data-inset="true" data-role="listview" id="listview0">
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Bombay (IIT Bombay)</li>
+                        <li id="listitem0">
+                            <a href="https://www.iitb.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Delhi (IIT Delhi)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitd.ac.i">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Kanpur (IIT Kanpur)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitk.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Madras (IIT Madras)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitm.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology Roorkee (IIT Roorkee)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitr.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Birla Institute of Technology and Science (BITS-Pilani)</li>
+                        <li id="listitem0">
+                            <a href="www.bits-pilani.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology - Banaras Hindu University (IIT-BHU)</li>
+                        <li id="listitem0">
+                            <a href="https://iitbhu.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of Technology (IIT Guwahati)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitg.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">National Institute of Technology, Tiruchirappalli</li>
+                        <li id="listitem0">
+                            <a href="http://www.nitt.edu">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian School of Mines (ISM)</li>
+                        <li id="listitem0">
+                            <a href="http://www.ismdhanbad.ac.in">Item</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content" id="pageContent0" style="color: white;">
+                <b><i>Possible Career Options after Finishing</i></b>
+                <br>
+                <i>Directly Related Jobs</i>
+                <br>Aeronautical engineer
+			<br>Automotive engineer
+			<br>Contracting Civil engineer
+ 			<br>Control and instrumentation engineer
+			<br>Maintenance engineer
+			<br>Mechanical engineer
+			<i>Other Possible Jobs</i>
+                <br>Corporate investment banker
+			<br>Mining engineer
+			<br>Patent attorney
+			<br>Production manager
+			<br>Technical sales engineer
+			<br>Water engineer			
+		</div>	
+            <div data-role="content" id="pageContent" style="color: white;">
+                <b><i>Further Details</i></b>
+                <br>
+                <a href="http://en.wikipedia.org/wiki/Mechanical_engineering" id="link">Wikipedia Link</a>
+                <br>
+                <a href="http://www.prospects.ac.uk/mechanical_engineer_job_description.htm" id="link">ME Job</a>
+                <br>
+                <a href="http://www.mapsofindia.com/education/engineering-colleges/top-mechanical-colleges-in-india.html" id="link">CSE in India</a>
+            </div>
+            <div data-position="fixed" data-role="footer">
+                <a data-icon="home" data-role="button" href="#homePage" id="button0">Home</a>
+			<a data-icon="search" data-iconpos="right" data-role="button" href="#login" id="button0" style="float: right;">Queries</a>			
+            </div>
+        </div>
+        <div class="bgimage" data-role="page" id="CIVIL" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-position="fixed" data-role="header">
+                <h1>Civil Engg</h1>
+                <a data-icon="back" data-role="button" href="#EngStreams" id="button0">Back</a>
+            </div>
+            <div data-role="content" style="color: white;">
+                <br>A professional engineering discipline that deals with the design, construction, and maintenance of the physical and naturally built environment, 
+		 	including works like roads, bridges, canals, dams, and buildings
+		</div>
+            <div data-role="collapsible-set" id="collapsible-set3">
+                <div data-role="collapsible" id="collapsible3" style="color: white;">
+                    <h3>Exams</h3>
+                    <ul data-inset="true" data-role="listview" id="listview1">
+                        <li id="listitem2">All India Engineering Entrance Examination
+						(AIEEE)<a href="http://en.wikipedia.org/wiki/All_India.../Architecture_Entrance_Examination"></a>
+                        </li>
+                        <li id="listitem3">Graduate Aptitude Test in Engineering<a href="http://en.wikipedia.org/wiki/Graduate_Aptitude_Test_in_Engineering"></a>
+                        </li>
+                        <li id="listitem4">IIT Joint Entrance Examination<a href="http://www.jeemain.nic.in"></a>
+                        </li>
+                        <li id="listitem2">Engineering Agricultural and Medical Common
+						Entrance Test (EAMCET), Andhra Pradesh<a href="http://apeamcet.org"></a>
+                        </li>
+                        <li id="listitem3">Common Entrance Examination (CEE), Delhi<a href="#"></a>
+                        </li>
+                        <li id="listitem4">Common Entrance Examination (CEE), Kerala<a href="#"></a>
+                        </li>
+                        <li id="listitem2">Karnataka Common Entrance Test<a href="#"></a>
+                        </li>
+                        <li id="listitem3">Common Entrance Examination (CEE), Assam<a href="#"></a>
+                        </li>
+                        <li id="listitem4">Combined Entrance Examination (CEE), Tamil
+						Nadu<a href="#"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div data-role="collapsible" id="collapsible5" style="color: white;">
+                    <h3>Top College</h3>
+                    <ul data-inset="true" data-role="listview" id="listview0">
+                        <li data-role="list-divider" id="collg1">Indian Institute of
+						Technology Bombay (IIT Bombay)</li>
+                        <li id="listitem0">
+                            <a href="https://www.iitb.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of
+						Technology Delhi (IIT Delhi)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitd.ac.i">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of
+						Technology Kanpur (IIT Kanpur)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitk.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of
+						Technology Kharagpur (IIT KGP)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitkgp.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of
+						Technology Madras (IIT Madras)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitm.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of
+						Technology Roorkee (IIT Roorkee)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitr.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Birla Institute of
+						Technology and Science (BITS-Pilani)</li>
+                        <li id="listitem0">
+                            <a href="www.bits-pilani.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of
+						Technology - Banaras Hindu University (IIT-BHU)</li>
+                        <li id="listitem0">
+                            <a href="https://iitbhu.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">Indian Institute of
+						Technology (IIT Guwahati)</li>
+                        <li id="listitem0">
+                            <a href="http://www.iitg.ac.in">Item</a>
+                        </li>
+                        <li data-role="list-divider" id="collg1">National Institute of
+						Technology, Tiruchirappalli</li>
+                        <li id="listitem0">
+                            <a href="http://www.nitt.edu">Item</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content" id="pageContent0" style="color: white;">
+                <b><i>Possible Career Options after Finishing</i></b>
+                <br>Building control surveyor 
+			<br>Building services engineer
+			<br>Engineering geologist
+			<br>Quantity surveyor
+			<br>Site engineer
+			<br>Structural engineer
+			<br>Water engineer
+		</div>		
+            <div data-role="content" id="pageContent" style="color: white;">
+                <b><i>Further Details</i></b>
+                <br>
+                <a href="http://en.wikipedia.org/wiki/Civil_engineering" id="link">Wikipedia Link</a>
+                <br>
+                <a href="http://www.prospects.ac.uk/options_civil_engineering.htm" id="link">CE Job Options</a>
+                <br>
+                <a href="http://www.prospects.ac.uk/consulting_civil_engineer_job_description.htm" id="link">Consulting CE Job</a>
+                <br>
+                <a href="http://www.prospects.ac.uk/contracting_civil_engineer_job_description.htm" id="link">Contracting CE Job</a>
+                <br>
+                <a href="http://www.mapsofindia.com/education/engineering-colleges/top-civil-colleges-in-india.html" id="link">Civil in India</a>
+            </div>
+            <div data-position="fixed" data-role="footer">
+                <a data-icon="home" data-role="button" href="#homePage" id="button0">Home</a>
+			<a data-icon="search" data-iconpos="right" data-role="button" href="#login" id="button0" style="float: right;">Queries</a>			
+            </div>
+        </div>
+        <div class="bgimage" data-role="page" id="BBA" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-position="fixed" data-role="header">
+                <a data-icon="back" data-role="button" href="#BusStreams" id="button0">Back</a>
+                <h1>BBA</h1>
+            </div>
+            <div data-role="content" style="color: white;">
+                <p>
+                    <b> Academic Eligibility Criteria for BBA Course</b>
+                    <br>It is a must that the candidates should fulfill the following criterias
+		  <br>Passing Higher Secondary or equivalent is a must
+          <br>Minimum of 40% in the qualifying exam
+          <br>English should be one of the subjects
+	</p>
+                <div data-role="collapsible" id="collapsible" style="color: white;">
+                    <h3>Top Colleges</h3>
+                    <ul data-inset="true" data-role="listview" id="listview">
+                        <li data-role="list-divider" id="divider">List of cols</li>
+                        <li id="listitem">
+                            <a href="http://christuniversity.in">Christ University	Hosur Road, Bangalore</a>
+                        </li>
+                        <li id="listitem0">
+                            <a href="http://amity.edu">Amity International Business School</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://banasthali.org/">Faculty of Management, Banasthali University</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://imsnoida.com/">Institute of Management Studies (IMS)</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://mcc.edu.in/">Madras Christian College</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="mountcarmelcollegeblr.co.in">Mount Carmel College</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://srmuniv.ac.in">Department of Business Administration, SRM University</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://msrcasc.edu.in">M.S. Ramaiah College of Arts, Science and Commerce</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://ethirajcollege.in/">Ethiraj College</a>
+                        </li>
+                    </ul>
+                </div>
+                <div data-role="collapsible" id="collapsible0" style="color: white;">
+                    <h3>Most Post Graduation Courses after BBA degree </h3>
+                    <br>1.Corporate MBA Supply Chain Management	
+		<br>2.CRISIL Certified Analyst Programme(CCAP)	
+        <br>3.Executive Program in Applied Finance		
+        <br>4.Post Graduation Diploma in Risk Management	 
+        <br>5.Master in Financial Management(MFM)	
+	</div>
+                <ul style="color: white;">
+                    <li>
+                        <b><i>JOB OPPORTUNITIES</i></b>
+                    </li>
+                    <li>Advertising Industry</li>
+                    <li>Banking</li>
+                    <li>Insuarance</li>
+                    <li>FMCG</li>
+                    <li>Aviation</li>
+                    <li>Hospitality and Tourism</li>
+                    <li>Media House</li>
+                    <li>Entertainment Industry</li>
+                </ul>		
+            </div>
+            <div data-position="fixed" data-role="footer">
+                <a data-icon="home" data-role="button" href="#homePage" id="button0">Home</a>
+			<a data-icon="search" data-iconpos="right" data-role="button" href="#login" id="button0" style="float: right;">Queries</a>			
+            </div>
+        </div>
+        <div class="bgimage" data-role="page" id="BCOM" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-position="fixed" data-role="header">
+                <h1>BCOM</h1>
+                <a data-icon="back" data-role="button" href="#BusStreams" id="button0">Back</a>
+            </div>
+            <div data-role="content" style="color: white;">
+                <p>
+                    <b> Academic Eligibility Criteria for BCOM Course</b> 
+                    <br>It is
+				a must that the candidates should fulfill the following criterias <br>Passing
+				Higher Secondary or equivalent is a must <br>Minimum of 40% in
+				the qualifying exam <br>English should be one of the subjects
+			</p>
+                <div data-role="collapsible" id="collapsible" style="color: white;">
+                    <h3>Top Colleges</h3>
+                    <ul data-inset="true" data-role="listview" id="listview">
+                        <li data-role="list-divider" id="divider">List of cols</li>
+                        <li id="listitem">
+                            <a href="http://srcc.edu/">Sri Ram
+							College of Commerce(SRCC)</a>
+                        </li>
+                        <li id="listitem0">
+                            <a href="http://loyolacollege.edu/">Loyola
+							College</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://sxccal.edu/">St.
+							Xaviers College</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://lsr.edu.in/">Lady
+							Shriram College for Women (LSR)</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://christuniversity.in">Christ
+							College</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://hinducollege.org/">Hindu
+							College</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://nmcollege.in">Shri
+							Narsee Monjee College of Commerce and Economics</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://mcc.edu.in/">Madras
+							Christian College(MCC)</a>
+                        </li>
+                    </ul>
+                </div>
+                <div data-role="collapsible" id="collapsibleBcom" style="color: white;">
+                    <h3>Most Post Graduation Courses after BCOM degree</h3>
+                    <br>1.CRISIL Certified Analyst Program (CCAP) 
+				<br>2.Diploma in Banking and Financial Services(HDBFS) 
+				<br>3.Executive MBA 
+				<br>4.Executive	Program in Applied Finance - IIM Calcutta 
+				<br>5.International	Post Graduate Diploma in Risk Management 
+				<br>6.Master in	Financial Management (MFM) 
+				<br>7.Master in Management Studies
+				(M.M.S.) 
+				<br>8.Master in Retail Management 
+				<br>9.Master of	Business Administration (MBA) 
+				<br>10.Master of Marketing	Management (M.M.M.)
+			</div>
+                <ul style="color: white;">
+                    <li>
+                        <b><i>JOB OPPORTUNITIES</i></b>
+                    </li>
+                    <li>Risk and insurance manager</li>
+                    <li>Banking</li>
+                    <li>Insuarance</li>
+                    <li>FMCG</li>
+                </ul>S
+		</div>
+            <div data-position="fixed" data-role="footer">
+                <a data-icon="home" data-role="button" href="#homePage" id="button0">Home</a>
+			<a data-icon="search" data-iconpos="right" data-role="button" href="#login" id="button0" style="float: right;">Queries</a>
+            </div>
+        </div>
+        <div class="bgimage" data-role="page" id="MARKET" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-position="fixed" data-role="header">
+                <h1>Marketing</h1>
+                <a data-icon="back" data-role="button" href="#BusStreams" id="button0">Back</a>
+            </div>
+            <div data-role="content" style="color: white;">
+                <p>
+                    <b>Marketing</b> 
+                    <br>Marketing is one of the fastest growing	industries in the world, 
+				<br>combining elements of many other professions, it offers highly 
+				<br>rewarding work for creative, motivated people
+			</p>
+                <div data-role="collapsible" id="collapsibleMar" style="color: white;">
+                    <h3>Top Colleges</h3>
+                    <ul data-inset="true" data-role="listview" id="listview">
+                        <li data-role="list-divider" id="divider">List of cols</li>
+                        <li id="listitem">
+                            <a href="">Xavier Labour Relations
+							Institute (XLRI) </a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="">Faculty of Management
+							Studies (FMS) </a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://lsr.edu.in/">S. P. Jain
+							Institute of Management and Research (LSR)</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://christuniversity.in">Indian
+							Institute of Foreign Trade (IIFT) </a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="">IIM's Colleges</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://sibm.in">Symbiosis
+							Institute of Business Management (SIBM), Pune </a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://jbims.edu.in/">Jamnalal
+							Bajaj Institute of Management Studies (JBIMS) )</a>
+                        </li>
+                        <li>National Institute of Industrial Engineering (NITIE),
+						Mumbai</li>
+                    </ul>
+                </div>
+                <div data-role="collapsible" id="collapsibleMar" style="color: white;">
+                    <h3>Most Post Graduation Courses</h3>
+                    <br>1.Sales Executives training 
+				<br>2.Executive MBA 
+				<br>3.Executive	Program in Applied Marketing IIM Calcutta 
+				<br>4.International	Post Graduate Diploma in Risk Management <br>5.Master in
+				Financial Management (MFM) 
+				<br>6.Master in Management Studies	(M.M.S.) 
+				<br>7.Master in Retail Management 
+				<br>8.Master of	Business Administration (MBA)
+			</div>
+			More Details: <a href="H.I.T.S.E.E or Hindustan Institute of Technology and Science Entrance Test">Touch
+				Here</a>
+                <ul>
+                    <li>
+                        <b><i>JOB OPPORTUNITIES</i></b>
+                    </li>
+                    <li>Sales Executives</li>
+                    <li>project management</li>
+                    <li>office manager</li>
+                    <li>executive assistant</li>
+                </ul>
+            </div>
+            <div data-position="fixed" data-role="footer">
+                <a data-icon="home" data-role="button" href="#homePage" id="button0">Home</a>
+			<a data-icon="search" data-iconpos="right" data-role="button" href="#login" id="button0" style="float: right;">Queries</a>			
+            </div>
+        </div>
+        <div class="bgimage" data-role="page" id="FINANCE" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-position="fixed" data-role="header">
+                <h1>FINANCE</h1>
+                <a data-icon="back" data-role="button" href="#BusStreams" id="button0">Back</a>
+            </div>
+            <div data-role="content" style="color: white;">
+                <p>
+                    <b> FINANCE</b> 
+                    <br> FINANCIAL MODELLING COURSES 
+				<br>a.	FINANCIAL MODELLING USING EXCEL- EDUPRISTINE 
+				<br>b.FINANCIAL	MODELLING COURSE - IMS PROSCHOOL-NSE 
+				<br>c.CERTIFICATE PROGRAM IN FINANCIAL MODELLING IN EXCEL - INDIAN INSTITUTE OF QUANTITATIVE FINANCE 
+				<br>d.FINANCIAL MODELLING -BSE
+			</p>
+                <div data-role="collapsible" id="collapsibleFin" style="color: white;">
+                    <h3>Top Colleges</h3>
+                    <ul data-inset="true" data-role="listview" id="listview">
+                        <li data-role="list-divider" id="divider">List of cols</li>
+                        <li id="listitem">
+                            <a href="">Amity Business School (ABS)</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://sxccal.edu/">St.
+							Xaviers College</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://lsr.edu.in/">Lady
+							Shriram College for Women (LSR)</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://christuniversity.in">Christ
+							College</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="">IIM's Colleges</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://nmcollege.in">Shri
+							Narsee Monjee College of Commerce and Economics</a>
+                        </li>
+                        <li id="listitem1">
+                            <a href="http://mcc.edu.in/">Madras
+							Christian College(MCC)</a>
+                        </li>
+                        <li>ISB, Hyderabad Post Graduate Programme in Management (PGP)</li>
+                    </ul>
+                </div>
+                <div data-role="collapsible" id="collapsibleBcom" style="color: white;">
+                    <h3>Most Post Graduation Courses after degree</h3>
+                    <br>1.CRISIL Certified Analyst Program (CCAP) 
+				<br>2.Diploma in Banking and Financial Services(HDBFS) 
+				<br>3.Executive MBA 
+				<br>4.Executive	Program in Applied Finance - IIM Calcutta 
+				<br>5.International	Post Graduate Diploma in Risk Management 
+				<br>6.Master in	Financial Management (MFM) 
+				<br>7.Master in Management Studies
+				(M.M.S.) 
+				<br>8.Master in Retail Management 
+				<br>9.Master of	Business Administration (MBA) 
+				<br>10.Master of Marketing Management (M.M.M.)
+			</div>
+                <ul>
+                    <li>
+                        <b><i>JOB OPPORTUNITIES</i></b>
+                    </li>
+                    <li>Treasurer</li>
+                    <li>Credit Manager</li>
+                    <li>Investor Relations Officer</li>
+                    <li>Banking</li>
+                    <li>Insuarance</li>
+                    <li>FMCG</li>
+                </ul>
+            </div>
+            <div data-position="fixed" data-role="footer">
+                <a data-icon="home" data-role="button" href="#homePage" id="button0">Home</a>
+			<a data-icon="search" data-iconpos="right" data-role="button" href="#login" id="button0" style="float: right;">Queries</a>
+            </div>
+        </div>
+        <div data-role="page" id="Reg" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-role="header">
+                <h1>Registration</h1>
+                <a data-icon="back" data-role="button" href="#homePage" id="button">Back</a>
+            </div>
+            <form id="form1" onsubmit="registerToDB()" style="color: white;">
+                <label for="text">Username:</label>
+			<input id="unameReg" name="unameRegunameReg" type="text"> 
+			<label for="text0">Password:</label>
+			<input id="pwdReg" name="pwdReg" type="password">
+			<label for="text1">Confirm Password:</label>
+			<input id="conPwdReg" name="conPwdReg" type="password">		
+			<label for="text">Email:</label>
+			<input id="emailReg" name="text" type="text"> 
+			<label id="label0">Gender:</label>
+                <fieldset data-role="controlgroup" id="genderGroup">
+                    <input checked class="gend" id="malRad" name="radio-choice" type="radio">
+				<label for="malRad">Male</label> 
+				<input class="gend" id="femalRad" name="radio-choice" type="radio"> 
+				<label for="femalRad">Female</label>
+                </fieldset>
+                <label for="textPhone">Phone No:</label>
+			<input id="textPhone" name="text0" type="text"> 
+			<input data-inline="true" id="regBut" type="submit" value="Register Me">
+			<input data-inline="true" style="float: right;" type="reset" value="Reset">
+			<a data-inline="true" data-role="button" href="#login" id="alreadyRegBut">Already Registered?</a>
+            </form>
+        </div>
+        <div data-role="page" id="login" style="background-image:url('images/helpdesk/hlp1.jpg');background-repeat: no-repeat;background-position:bottom;color: white;">
+            <div data-role="header">
+                <h1>Login Page</h1>
+                <a data-icon="back" data-role="button" href="#homePage" id="button">Back</a>
+            </div>
+            <label for="text0">Username:</label>
+		   <input id="loguname" name="username" type="text">
+		    <label for="text1">Password:</label>
+		    <input id="logpwd" name="password" type="password">
+		     <a data-role="button" href="#" id="loginbut" onclick="loginToDB()">LOGIN</a>
+            <h5 align="center">Not a Member ?
+		     <a href="#Reg">Register Now..</a>
+            </h5>
+            <h5 align="center">Forget Password?
+		     <a href="#forPass">Click Here</a>
+            </h5>
+            <img align="middle" alt="" src="images/helpdesk/images.jpg"> 
+	</div>
+        <div data-role="page" id="forPass" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-position="fixed" data-role="header" style="color: white;">
+                <h1>Forget Password</h1>
+                <a data-icon="back" data-role="button" href="#homePage" id="button">Back</a>
+            </div>
+            <div data-role="content">
+                <label for="unameForPass">Enter username</label>
+			<input id="unameForPass" name="unameForPass" type="text">
+			<label for="emailForPass">Enter email which your password will be sent (Registered Email)</label>
+			<input id="emailForPass" name="emailForPass" type="text">
+			<a data-role="button" id="getPassBtn" onclick="forgotPass()">Get Password</a>
+            </div>
+        </div>
+        <div data-role="page" id="queries" style="background-image: url('images/helpdesk/hlp1.jpg');">
+            <div data-position="fixed" data-role="header">
+                <h1>Have any Queries...??</h1>
+            </div>
+            <div data-role="content" style="color: white;">
+                <label id="queryLabel" style="font-size:x-large;font-style: italic;">Queries</label>
+                <br>
+                <label id="loginAsLabel" style="float: right;">Login in as: </label>
+                <iframe name="iframe1" src="http://helpdeskeducation.freeforums.org/"></iframe>
+                <br>
+                <a href="http://helpdeskeducation.freeforums.org/" id="link1">Forum Page on Browser</a> 
+                <br>
+                <br>
+                <label id="label2">For further queries, send an email to the following address:</label>
+                <br>
+                <a href="www.gmail.com">helpdeskquery2@gmail.com</a> 
+                <br>
+                <br>
+                <img border="0" height="100" src="images/helpdesk/gmailicon.jfif" width="100">
+		</div>
+            <div data-position="fixed" data-role="footer">
+                <a data-icon="home" data-role="button" href="#homePage" id="button">Home</a>
+			<a data-icon="minus" data-role="button" href="#login" id="button" style="float: right;">Logout</a>
+            </div>
+        </div>
+        <script defer src="js/idangerous.swiper.js"></script>
+    </body>
+</html>
